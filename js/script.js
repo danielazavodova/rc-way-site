@@ -2,8 +2,6 @@ const body = document.body;
 const menuToggle = document.querySelector(".menu-toggle");
 const navPanel = document.querySelector(".nav-panel");
 const navLinks = document.querySelectorAll(".nav-panel a");
-const leadForm = document.getElementById("lead-form");
-const formStatus = document.getElementById("form-status");
 const revealItems = document.querySelectorAll(".reveal");
 
 if (menuToggle && navPanel) {
@@ -44,50 +42,5 @@ if (revealItems.length) {
 
   revealItems.forEach((item) => {
     revealObserver.observe(item);
-  });
-}
-
-if (leadForm) {
-  leadForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(leadForm);
-    const name = String(formData.get("name") || "").trim();
-    const company = String(formData.get("company") || "").trim();
-    const phone = String(formData.get("phone") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const message = String(formData.get("message") || "").trim();
-    const action = leadForm.getAttribute("action") || "";
-
-    if (!name || !phone || !email) {
-      formStatus.textContent = "Пожалуйста, заполните обязательные поля формы.";
-      return;
-    }
-
-    if (!action) {
-      formStatus.textContent = "Не удалось определить адрес отправки формы.";
-      return;
-    }
-
-    formStatus.textContent = "Отправляем заявку...";
-
-    try {
-      const response = await fetch(action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
-
-      leadForm.reset();
-      window.location.href = "thank-you.html";
-    } catch (error) {
-      formStatus.textContent = "Не удалось отправить заявку. Пожалуйста, попробуйте еще раз.";
-    }
   });
 }
