@@ -48,7 +48,7 @@ if (revealItems.length) {
 }
 
 if (leadForm) {
-  leadForm.addEventListener("submit", (event) => {
+  leadForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(leadForm);
@@ -57,30 +57,37 @@ if (leadForm) {
     const phone = String(formData.get("phone") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
+    const action = leadForm.getAttribute("action") || "";
 
-    if (!name || !phone || !email || !message) {
+    if (!name || !phone || !email) {
       formStatus.textContent = "Пожалуйста, заполните обязательные поля формы.";
       return;
     }
 
-    const subject = encodeURIComponent("Заявка с сайта RC-WAY");
-    const bodyText = encodeURIComponent(
-      [
-        "Здравствуйте!",
-        "",
-        "Отправляю заявку с сайта RC-WAY.",
-        "",
-        `Имя: ${name}`,
-        `Компания: ${company || "Не указана"}`,
-        `Телефон: ${phone}`,
-        `Email: ${email}`,
-        "",
-        "Описание задачи:",
-        message,
-      ].join("\n")
-    );
+    if (!action) {
+      formStatus.textContent = "Не удалось определить адрес отправки формы.";
+      return;
+    }
 
-    formStatus.textContent = "Открываем письмо для отправки заявки...";
-    window.location.href = `mailto:a.bessmertnaya@gmail.com?subject=${subject}&body=${bodyText}`;
+    formStatus.textContent = "Отправляем заявку...";
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      leadForm.reset();
+      window.location.href = "thank-you.html";
+    } catch (error) {
+      formStatus.textContent = "Не удалось отправить заявку. Пожалуйста, попробуйте еще раз.";
+    }
   });
 }

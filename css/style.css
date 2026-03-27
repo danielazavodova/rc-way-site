@@ -858,6 +858,40 @@ li {
   color: var(--accent-dark);
 }
 
+.thank-you-page {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 48px 0;
+}
+
+.thank-you-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: var(--radius-2xl);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.thank-you-card h1 {
+  margin: 0 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.thank-you-card p {
+  max-width: 44ch;
+  margin: 0 auto 28px;
+  color: var(--muted);
+  line-height: 1.75;
+  text-align: center;
+}
+
 .site-footer {
   padding: 26px 0 34px;
 }
@@ -1100,5 +1134,9 @@ li {
   .leader-profile__image-wrap {
     min-height: 320px;
     max-height: none;
+  }
+
+  .thank-you-card {
+    padding: 32px 24px;
   }
 }
