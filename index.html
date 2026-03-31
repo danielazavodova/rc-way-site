@@ -247,6 +247,55 @@
         </div>
       </section>
 
+      <section class="section section--soft reveal" id="gallery">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Галерея</span>
+            <h2>Галерея</h2>
+            <p>
+              Несколько фотографий мероприятий и деловых встреч, отражающих атмосферу
+              международного сотрудничества и работы RC-WAY.
+            </p>
+          </div>
+
+          <div class="gallery-slider reveal reveal--delay-1" data-slider>
+            <button class="gallery-slider__control gallery-slider__control--prev" type="button" aria-label="Предыдущий слайд" data-slider-prev>
+              <span aria-hidden="true">‹</span>
+            </button>
+
+            <div class="gallery-slider__viewport">
+              <div class="gallery-slider__track" data-slider-track>
+                <article class="gallery-slide">
+                  <div class="gallery-slide__frame">
+                    <img src="assets/gallery-1.jpg" alt="Мероприятие RC-WAY" loading="lazy">
+                  </div>
+                </article>
+                <article class="gallery-slide">
+                  <div class="gallery-slide__frame">
+                    <img src="assets/gallery-2.jpg" alt="Деловая встреча RC-WAY" loading="lazy">
+                  </div>
+                </article>
+                <article class="gallery-slide">
+                  <div class="gallery-slide__frame">
+                    <img src="assets/gallery-3.jpg" alt="Галерея мероприятий RC-WAY" loading="lazy">
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <button class="gallery-slider__control gallery-slider__control--next" type="button" aria-label="Следующий слайд" data-slider-next>
+              <span aria-hidden="true">›</span>
+            </button>
+
+            <div class="gallery-slider__dots" aria-label="Навигация по слайдам">
+              <button class="gallery-slider__dot is-active" type="button" aria-label="Слайд 1" data-slider-dot="0"></button>
+              <button class="gallery-slider__dot" type="button" aria-label="Слайд 2" data-slider-dot="1"></button>
+              <button class="gallery-slider__dot" type="button" aria-label="Слайд 3" data-slider-dot="2"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section section--soft reveal" id="cases">
         <div class="container">
           <div class="section-heading reveal">
@@ -344,12 +393,8 @@
                 <p>Генеральный директор компании RC-WAY</p>
               </article>
               <article class="contact-card">
-                <span>Телефон</span>
-                <a href="tel:+79262463585">+7 (926) 246-35-85</a>
-              </article>
-              <article class="contact-card">
                 <span>Email</span>
-                <strong>a.bessmertnaya@gmail.com</strong>
+                <a href="mailto:info@rcway.ru">info@rcway.ru</a>
               </article>
             </div>
           </div>
@@ -385,10 +430,6 @@
                 <textarea id="message" name="message" rows="5" placeholder="Коротко опишите ваш запрос"></textarea>
               </div>
               <button class="btn btn--accent btn--full" type="submit">Отправить заявку</button>
-              <p class="form-note">
-                Заявка отправляется напрямую через форму сайта. После отправки откроется страница благодарности.
-              </p>
-              <p class="form-status" id="form-status" aria-live="polite"></p>
             </form>
           </div>
         </div>
@@ -414,8 +455,7 @@
 
         <div class="site-footer__contacts">
           <span>Связь</span>
-          <a href="tel:+79262463585">+7 (926) 246-35-85</a>
-          <strong>a.bessmertnaya@gmail.com</strong>
+          <a href="mailto:info@rcway.ru">info@rcway.ru</a>
           <p>Анна Бессмертная, генеральный директор RC-WAY</p>
         </div>
       </div>
